@@ -1,17 +1,43 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <AppTable />
+    <AppTable :appData="appData" @clickRow="showId" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+import AppTable from './components/AppTable.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  //  HelloWorld,
+    AppTable,
+  },
+  data() {
+    return {
+      appData: [
+        {
+          id: 1,
+          name: 'Jhon',
+          lastName: 'Smith',
+          age: 21
+        },
+        {
+          id: 2,
+          name: 'Jhon 2',
+          lastName: 'Smith 2',
+          age: 22
+        }
+      ]
+    }
+  }, 
+  methods: {
+    showId(id) {
+      alert(id)
+    }
   }
 }
 </script>
